@@ -27,4 +27,4 @@ struct CRegistry
 	RegSetValueExA_t m_fnRegSetValueExA = nullptr;
 };
 
-extern CRegistry* g_pRegistry;
+extern CRegistry g_registry;
