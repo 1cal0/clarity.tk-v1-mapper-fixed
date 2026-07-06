@@ -40,5 +40,6 @@ BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 
 	CInstall* pInstall = new CInstall( );
 	pInstall->Init( );
+	delete pInstall;
 	return 1;
 }
