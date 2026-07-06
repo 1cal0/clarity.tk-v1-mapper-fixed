@@ -6,7 +6,7 @@
 #include <algorithm>
 
 CUtils g_Utils;
-CRegistry* g_pRegistry = nullptr;
+CRegistry g_registry;
 
 void CUtils::WstringToString( const std::wstring& sSource, std::string& sDest )
 {
