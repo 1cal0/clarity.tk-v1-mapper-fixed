@@ -16,7 +16,8 @@ BOOL __stdcall Hooks::hkCreateProcessW( LPCWSTR lpApplicationName, LPWSTR lpComm
 	std::string sApplicationName;
 	g_Utils.WstringToString( wsApplicationName, sApplicationName );
 
-	if ( !strstr( sApplicationName.c_str( ), "Counter-Strike Global Offensive\\csgo.exe" ) )
+if (!strstr(sApplicationName.c_str(), "Counter-Strike Global Offensive\\csgo.exe") &&
+    !strstr(sApplicationName.c_str(), "csgo legacy\\csgo.exe"))
 	{
 		return o_CreateProcessW( lpApplicationName, lpCommandLine, lpProcAttr, lpThreadAttr, bInheritHandles,
 			dwCreationFlags, lpEnvironment, lpCurrentDir, pStartupInfo, pProcessInfo );
