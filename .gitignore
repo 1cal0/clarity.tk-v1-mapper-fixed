@@ -30,3 +30,34 @@
 *.exe
 *.out
 *.app
+
+# Visual Studio user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstats
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.log
+*.tlog
+*.ilk
+*.pdb
+*.ipdb
+*.iobj
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww]in32/
+[Ww]in32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
