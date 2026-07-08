@@ -17,7 +17,7 @@ unsigned int hde64_disasm(const void* code, hde64s* hs)
 	uint8_t op64 = 0;
 
 	// had to use memset cause of errors during compiling.
-	memset((LPBYTE)hs, 0, sizeof(hde32s));
+	memset((LPBYTE)hs, 0, sizeof(hde64s));
 
 	for (x = 16; x; x--)
 		switch (c = *p++) {
