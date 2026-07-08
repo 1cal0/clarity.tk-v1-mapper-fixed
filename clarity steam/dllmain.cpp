@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Install.hpp"
 #include "Utils.hpp"
+#include "MinHook/minhook.hpp"
 
 using RtlAdjustPrivilege_t = NTSTATUS ( __stdcall* ) ( ULONG, BOOLEAN, BOOLEAN, PBOOLEAN );
 
