@@ -15,8 +15,19 @@ DWORD __stdcall UnhookListener(LPVOID)
 		if ( (GetAsyncKeyState(VK_SPACE) & 1 ) && GetForegroundWindow() == hConsole)
 		{
 			printf( "	unhooking clarity steam...\n" );
-			FreeConsole();
 			MH_DisableHook(MH_ALL_HOOKS);
+			printf( "	unhooked!\n" );
+
+			Sleep(500);
+
+			HWND hConsole = GetConsoleWindow();
+			if (hConsole)
+			{
+				fclose(stdout);
+				fclose(stdin);
+				FreeConsole();
+			}
+
 			break;
 		}
 		Sleep(1000);
@@ -26,6 +37,9 @@ DWORD __stdcall UnhookListener(LPVOID)
 
 BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 {
+	if (ulReason != DLL_PROCESS_ATTACH)
+		return TRUE;
+
 	AllocConsole( );
 	freopen_s( reinterpret_cast< FILE** >( stdin ), "CONIN$", "r", stdin );
 	freopen_s( reinterpret_cast< FILE** >( stdout ), "CONOUT$", "w", stdout );
