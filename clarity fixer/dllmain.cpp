@@ -13,7 +13,7 @@
 #include "cheat.h"
 #include "Other/patches.hpp"
 
-void main()
+DWORD __stdcall main(LPVOID)
 {
 	MEMORY_BASIC_INFORMATION mem;
 	if (!VirtualQuery(reinterpret_cast<void*>(0x36080000), &mem, sizeof(mem)))
@@ -68,7 +68,7 @@ bool __stdcall DllMain(HANDLE hinstDLL, uint32_t fdwReason, void* lpReserved)
 		AllocConsole();
 		SetConsoleTitleA("clarity.tk v1 cs:go mapper [ft.Ex3zen]");
 		freopen("CONOUT$", "w", stdout);
-		CreateThread(0, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(main), 0, 0, 0);
+		CreateThread(0, 0, main, 0, 0, 0);
 	}
 	return true;
 }
