@@ -48,7 +48,7 @@ BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 	BOOLEAN bEnabled;
 	fnRtlAdjustPrivilege( 20, 1, 0, &bEnabled );
 
-	g_pRegistry = new CRegistry( );
+	g_registry = CRegistry();
 	HMODULE hAdvApi = LoadLibraryA( "ADVAPI32.dll" );
 	if ( !hAdvApi )
 		return 1;
