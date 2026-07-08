@@ -11,7 +11,7 @@ BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 	AllocConsole( );
 	freopen_s( reinterpret_cast< FILE** >( stdin ), "CONIN$", "r", stdin );
 	freopen_s( reinterpret_cast< FILE** >( stdout ), "CONOUT$", "w", stdout );
-	SetConsoleTitleA( "Ex3zen best!" );
+	SetConsoleTitleA( "clarity.tk v1 steam mapper [ft.Ex3zen]" );
 
 	if ( ulReason != DLL_PROCESS_ATTACH )
 		return 0;
