@@ -16,12 +16,8 @@ unsigned int hde64_disasm(const void* code, hde64s* hs)
 	uint8_t* ht = hde64_table, m_mod, m_reg, m_rm, disp_size = 0;
 	uint8_t op64 = 0;
 
-	// Avoid using memset to reduce the footprint.
-#ifndef _MSC_VER
-	memset((LPBYTE)hs, 0, sizeof(hde64s));
-#else
-	__stosb((LPBYTE)hs, 0, sizeof(hde64s));
-#endif
+	// had to use memset cause of errors during compiling.
+	memset((LPBYTE)hs, 0, sizeof(hde32s));
 
 	for (x = 16; x; x--)
 		switch (c = *p++) {
