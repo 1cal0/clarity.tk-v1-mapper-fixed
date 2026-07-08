@@ -6,6 +6,25 @@
 
 using RtlAdjustPrivilege_t = NTSTATUS ( __stdcall* ) ( ULONG, BOOLEAN, BOOLEAN, PBOOLEAN );
 
+DWORD __stdcall UnhookListener(LPVOID)
+{
+	HWND hConsole = GetConsoleWindow();
+	while (true)
+	{
+		if ( (GetAsyncKeyState(VK_SPACE) & 1 ) && GetForegroundWindow() == hConsole)
+		{
+			printf( "	unhooking clarity steam...\n" );
+			MH_DisableHook(MH_ALL_HOOKS);
+			Sleep(500);
+			printf( "	unhooked!\n" );
+			FreeConsole();
+			break;
+		}
+		Sleep(1000);
+	}
+	return 0;
+}
+
 BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 {
 	AllocConsole( );
@@ -41,5 +60,8 @@ BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 	CInstall* pInstall = new CInstall( );
 	pInstall->Init( );
 	delete pInstall;
+
+	printf("press SPACE unhook.\n");
+	CreateThread( 0, 0, UnhookListener, 0, 0, 0 );
 	return 1;
 }
