@@ -15,10 +15,8 @@ DWORD __stdcall UnhookListener(LPVOID)
 		if ( (GetAsyncKeyState(VK_SPACE) & 1 ) && GetForegroundWindow() == hConsole)
 		{
 			printf( "	unhooking clarity steam...\n" );
-			MH_DisableHook(MH_ALL_HOOKS);
-			Sleep(500);
-			printf( "	unhooked!\n" );
 			FreeConsole();
+			MH_DisableHook(MH_ALL_HOOKS);
 			break;
 		}
 		Sleep(1000);
