@@ -53,10 +53,10 @@ BOOL __stdcall DllMain( HMODULE hModule, DWORD ulReason, LPVOID lpReserved )
 	if ( !hAdvApi )
 		return 1;
 
-	g_pRegistry->m_fnRegCloseKey = reinterpret_cast< RegCloseKey_t >( GetProcAddress( hAdvApi, "RegCloseKey" ) );
-	g_pRegistry->m_fnRegOpenKeyExA = reinterpret_cast< RegOpenKeyExA_t >( GetProcAddress( hAdvApi, "RegOpenKeyExA" ) );
-	g_pRegistry->m_fnRegQueryValueExA = reinterpret_cast< RegQueryValueExA_t >( GetProcAddress( hAdvApi, "RegQueryValueExA" ) );
-	g_pRegistry->m_fnRegSetValueExA = reinterpret_cast< RegSetValueExA_t >( GetProcAddress( hAdvApi, "RegSetValueExA" ) );
+	g_registry.m_fnRegCloseKey = reinterpret_cast< RegCloseKey_t >( GetProcAddress( hAdvApi, "RegCloseKey" ) );
+	g_registry.m_fnRegOpenKeyExA = reinterpret_cast< RegOpenKeyExA_t >( GetProcAddress( hAdvApi, "RegOpenKeyExA" ) );
+	g_registry.m_fnRegQueryValueExA = reinterpret_cast< RegQueryValueExA_t >( GetProcAddress( hAdvApi, "RegQueryValueExA" ) );
+	g_registry.m_fnRegSetValueExA = reinterpret_cast< RegSetValueExA_t >( GetProcAddress( hAdvApi, "RegSetValueExA" ) );
 
 	CInstall* pInstall = new CInstall( );
 	pInstall->Init( );
